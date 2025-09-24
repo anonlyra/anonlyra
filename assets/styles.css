@@ -1,0 +1,549 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Video Loading Styles */
+.video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+    display: none;
+}
+
+.result-video {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+h1 {
+    font-weight: 300;
+    line-height: 1.15em;
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+}
+h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+    text-align: center;
+}
+a:link, a:visited {
+    color: #1772d0;
+    text-decoration: none;
+}
+a:hover {
+    color: #f09228;
+}
+.paper-title {
+    padding: 16px 0px 16px 0px;
+}
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+.author-row, .affil-row {
+    overflow: auto;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+hr {
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.caption-center {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 16px;
+    padding-right: 16px; */
+}
+.topnav {
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* Supplementary PDF Button Styles */
+.supp-btn {
+    background-color: #fff;
+    border: 1.5px solid #000;
+    color: #000 !important;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin: 8px;
+    width: fit-content;
+    font-weight: 400;
+}
+.supp-btn:hover {
+    background-color: #000;
+    color: #fff !important;
+}
+/* Result Video Styles */
+.result-video {
+    width: 100%;
+    /* max-width: 800px; */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+/* Thumbnail Container */
+.dots {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+/* Thumbnail Styling */
+.dots .dot {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.card-img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #c1bfbf;
+    border-radius: 8px;
+    padding: 2px;
+    display: block;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+    transform-origin: center center;
+}
+.card-img:hover {
+    transform: scale(1.2);
+}
+/* Active Thumbnail Indication */
+.dots .dot.active .card-img {
+    width: 70px;
+    height: 70px;
+    border-color: #1772d0;
+    box-shadow: 0 0 10px rgba(23, 114, 208, 0.7);
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+/* Slide Menu and Content */
+.slide-content {
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+.slide-menu {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Responsive Design */
+@media (max-width: 2000px) {
+    .result-video {
+        width: 100%; /* Make the video 105% of its container */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Treat the video as a block element */
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+        border: 1px solid #ddd; /* Optional: border for styling */
+        border-radius: 8px; /* Optional: rounded corners */
+    }
+    .dots {
+        gap: 20px;
+    }
+    .card-img {
+        width: 40px;
+        height: 40px;
+    }
+    .dots .dot.active .card-img {
+        width: 60px;
+        height: 60px;
+    }
+    .slide-menu {
+        margin-bottom: 30px;
+    }
+}
+/* Comparison Container */
+.comparison-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    /* max-width: 800px; */
+    margin: 0 auto;
+}
+.comparison-row {
+    display: flex;
+    gap: 20px; /* 设置所需的间距，例如 20px */
+    /* 也可以使用 justify-content: space-between; 根据需要选择 */
+}
+/* Wrapper for videos and slider */
+.comparison-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+.slider-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow mouse events to pass through */
+}
+/* Comparison Videos */
+.comparison-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Hide the second video initially */
+.comparison-video.video2 {
+    clip-path: inset(0px 100% 0px 0px);
+}
+/* Slider Handle */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Start at the middle */
+    width: 3px;
+    height: 100%;
+    background-color: #f09228;
+    cursor: ew-resize;
+    z-index: 2;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+
+/* 12-Column Grid System */
+/* Flex Row */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -16px; /* Adjust based on padding */
+    margin-right: -16px;
+}
+
+/* Caption Styling */
+.caption-center {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 2000px) {
+    .col-6 {
+        width: 100%; /* Stack on smaller screens */
+    }
+}
+.col-6 {
+    width: 16.6%;
+    float: left;
+}
+.col-5 {
+    width: 20%;
+    float: left;
+}
+.col-4 {
+    width: 25%;
+    float: left;
+}
+.col-3 {
+    width: 33%;
+    float: left;
+}
+.col-2 {
+    width: 50%;
+    float: left;
+}
+.col-1 {
+    width: 100%;
+    float: left;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-pills {
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* 居中 */
+    gap: 10px; /* 按钮间距 */
+}
+
+.nav-pills > li {
+    float: left;
+    position: relative;
+    display: inline-block; /* 改为内联块元素以适配按钮 */
+}
+
+/* 针对 .method-pill 类 */
+.method-pill {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.method-pill a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.method-pill:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.method-pill.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.method-pill.active a {
+    color: #fff;
+}
+
+.driving-method-pill {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.driving-method-pill a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.driving-method-pill:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.driving-method-pill.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.driving-method-pill.active a {
+    color: #fff;
+}
+
+.new-slide-menu {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-dots {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.new-dots .new-dot {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.new-card-img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #c1bfbf;
+    border-radius: 8px;
+    padding: 2px;
+    display: block;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.new-card-img:hover {
+    transform: scale(1.2);
+}
+
+.new-dots .new-dot.active .new-card-img {
+    width: 70px;
+    height: 70px;
+    border-color: #1772d0;
+    box-shadow: 0 0 10px rgba(23, 114, 208, 0.7);
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* New Video Player */
+
+
+/* New Method Pills (New Navigation) */
+.new-center-pills {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.new-method-pill {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.new-method-pill a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.new-method-pill:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.new-method-pill.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.new-method-pill.active a {
+    color: #fff;
+}
+
+/* Responsive Adjustments for New Elements */
+@media (max-width: 2000px) {
+    .new-card-img {
+        width: 40px;
+        height: 40px;
+    }
+    .new-dots .new-dot.active .new-card-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.new-video {
+    display: block;
+    margin: 0 auto;
+    height: 280px;
+    max-width: 100%;
+}
+
+.video {
+    display: block;
+    margin: 0 auto;
+    height: 280px;
+    max-width: 100%;
+}
+
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+
+details summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+details summary:hover {
+background-color: #e0e0e0;
+}
